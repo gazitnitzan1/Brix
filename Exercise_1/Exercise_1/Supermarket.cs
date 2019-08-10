@@ -1,51 +1,47 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+using System.Collections.Concurrent;
 using System.Threading;
 
 namespace Exercise_1
 {
     class Supermarket
     {
-        public Queue<Client> supermarketQueue;
-        public SpinLock spinLock = new SpinLock();
+        public ConcurrentQueue<Client> supermarketQueue;
         Random random = new Random();
 
         public Supermarket()
         {
-            this.supermarketQueue = new Queue<Client>();
+            this.supermarketQueue = new ConcurrentQueue<Client>();
         }
 
         public void QueueManager()
         {
             int clientNum = 1;
-            while (supermarketQueue.Count < 100)
+            while (true)
             {
-                Thread.Sleep(1000);                
+                Thread.Sleep(1000);
                 Client enteringClient = new Client(clientNum);
                 supermarketQueue.Enqueue(enteringClient);
-                Console.WriteLine("Client no " + clientNum + " has entered the queue at "+ enteringClient.enterTime);
+                Console.WriteLine("Client " + clientNum + " has entered the queue at " + enteringClient.enterTime);
                 clientNum++;
             }
         }
 
         public void SupermarketWork()
         {
-            while (true) {
-                if (supermarketQueue.Count + 4 >= Thread.CurrentThread.ManagedThreadId 
-                    && supermarketQueue.Count > 0) {
-                    Client currentClient = supermarketQueue.Dequeue();
+            Client currentClient;
+            while (true)
+            {
+                if (supermarketQueue.TryDequeue(out currentClient))
+                {
                     Console.WriteLine("supermarketQueue.Count -> " + supermarketQueue.Count);
                     int cashierProcessingTime = random.Next(1000, 5000);
-                    Thread.BeginThreadAffinity();
                     Thread.Sleep(cashierProcessingTime);
-                    Thread.EndThreadAffinity();
                     double totalWaitingTime = DateTime.Now.Subtract(currentClient.enterTime).TotalSeconds;
-                    Console.WriteLine("Client " + currentClient.id
+                    Console.WriteLine("Client " + currentClient.id + " served by cashier " + Thread.CurrentThread.Name
                         + " has left the cashier with total waiting time: " + totalWaitingTime + " seconds");
-                }                
+                }
             }
         }
     }
 }
-
