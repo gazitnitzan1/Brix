@@ -1,0 +1,11 @@
+C:\Dev\Brix\Execise_2\Execise_2\bin\Debug\netcoreapp2.2\Execise_2.deps.json
+C:\Dev\Brix\Execise_2\Execise_2\bin\Debug\netcoreapp2.2\Execise_2.runtimeconfig.json
+C:\Dev\Brix\Execise_2\Execise_2\bin\Debug\netcoreapp2.2\Execise_2.runtimeconfig.dev.json
+C:\Dev\Brix\Execise_2\Execise_2\bin\Debug\netcoreapp2.2\Execise_2.dll
+C:\Dev\Brix\Execise_2\Execise_2\bin\Debug\netcoreapp2.2\Execise_2.pdb
+C:\Dev\Brix\Execise_2\Execise_2\obj\Debug\netcoreapp2.2\Execise_2.csprojAssemblyReference.cache
+C:\Dev\Brix\Execise_2\Execise_2\obj\Debug\netcoreapp2.2\Execise_2.csproj.CoreCompileInputs.cache
+C:\Dev\Brix\Execise_2\Execise_2\obj\Debug\netcoreapp2.2\Execise_2.AssemblyInfoInputs.cache
+C:\Dev\Brix\Execise_2\Execise_2\obj\Debug\netcoreapp2.2\Execise_2.AssemblyInfo.cs
+C:\Dev\Brix\Execise_2\Execise_2\obj\Debug\netcoreapp2.2\Execise_2.dll
+C:\Dev\Brix\Execise_2\Execise_2\obj\Debug\netcoreapp2.2\Execise_2.pdb
